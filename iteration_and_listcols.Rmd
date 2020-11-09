@@ -117,6 +117,24 @@ for (i in 1:4) {
 
 
 
+## Let's try map!
+
+```{r}
+output = map(list_norms, mean_and_sd)
+```
+
+
+
+what if you want a different function..?
+
+
+```{r}
+output = map(list_norms, median)
+output = map(list_norms, IQR)
+```
+
+
+
 
 
 

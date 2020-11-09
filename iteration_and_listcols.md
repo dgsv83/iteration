@@ -81,7 +81,7 @@ mean_and_sd(list_norms[[1]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  2.92  1.08
+    ## 1  2.94  1.23
 
 ``` r
 mean_and_sd(list_norms[[2]])
@@ -90,7 +90,7 @@ mean_and_sd(list_norms[[2]])
     ## # A tibble: 1 x 2
     ##     mean    sd
     ##    <dbl> <dbl>
-    ## 1 -0.320  5.53
+    ## 1 -0.170  4.35
 
 ``` r
 mean_and_sd(list_norms[[3]])
@@ -99,7 +99,7 @@ mean_and_sd(list_norms[[3]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  10.0 0.148
+    ## 1  9.99 0.258
 
 ``` r
 mean_and_sd(list_norms[[4]])
@@ -108,7 +108,7 @@ mean_and_sd(list_norms[[4]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1 -3.35  1.01
+    ## 1 -2.78  1.06
 
 Let’s use a for loop:
 
@@ -120,4 +120,17 @@ for (i in 1:4) {
   output[[i]] = mean_and_sd(list_norms[[i]])
 
 }
+```
+
+## Let’s try map\!
+
+``` r
+output = map(list_norms, mean_and_sd)
+```
+
+what if you want a different function..?
+
+``` r
+output = map(list_norms, median)
+output = map(list_norms, IQR)
 ```
