@@ -81,16 +81,16 @@ mean_and_sd(list_norms[[1]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.17  1.03
+    ## 1  3.26 0.857
 
 ``` r
 mean_and_sd(list_norms[[2]])
 ```
 
     ## # A tibble: 1 x 2
-    ##     mean    sd
-    ##    <dbl> <dbl>
-    ## 1 0.0116  5.09
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1 0.681  6.02
 
 ``` r
 mean_and_sd(list_norms[[3]])
@@ -99,7 +99,7 @@ mean_and_sd(list_norms[[3]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  10.0 0.197
+    ## 1  10.1 0.224
 
 ``` r
 mean_and_sd(list_norms[[4]])
@@ -108,7 +108,7 @@ mean_and_sd(list_norms[[4]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1 -3.65 0.948
+    ## 1 -3.35 0.897
 
 Let’s use a for loop:
 
@@ -164,29 +164,30 @@ listcol_df %>% pull(samp)
 ```
 
     ## $a
-    ##  [1] 4.0317811 3.6773079 2.3940488 4.9235070 2.2167676 2.7276463 3.5723113
-    ##  [8] 3.2474498 0.4013121 2.2287926 3.4166403 2.9344297 2.7993621 3.7920211
-    ## [15] 3.3375072 2.4734346 3.1411245 4.9489139 2.9235379 4.2735525
+    ##  [1] 3.186959 3.359489 2.792473 4.111898 2.911918 2.700403 2.768728 1.917639
+    ##  [9] 4.086807 2.664536 4.632890 4.347065 3.441696 4.647846 1.743040 2.836023
+    ## [17] 2.319005 4.298261 3.169483 3.316042
     ## 
     ## $b
-    ##  [1]  -0.2783903  -1.8471117   2.0676547  -1.2119882   4.7374223   7.1266062
-    ##  [7]  -8.7290475   2.8115838  -2.6450479   2.0473179   2.6101464   2.4176631
-    ## [13]   1.8817518  -0.8521401  -2.3096088   3.7511041 -11.8728810  -4.0521502
-    ## [19]   7.3345405   2.3421746  -0.3179236  -5.6151006   6.4582140   1.2240091
-    ## [25] -12.5842025   3.8469925   6.4921567   0.1350233  -5.3384489   0.7191378
+    ##  [1]  -4.64213122   0.08001491   3.57689619 -11.73171881   6.29774153
+    ##  [6]  11.47283190  -7.64692280  -0.76566539  -7.93921706   2.85687044
+    ## [11]  11.70904732   0.05926228  -6.53170839  -4.54591842   5.88360542
+    ## [16]   5.24722121  -6.54568454   1.91122084   2.41416323   6.56161301
+    ## [21]   2.56947260  -6.13735888   6.48638493  -5.69099221   4.00194184
+    ## [26]   4.14686825  -4.36061961   0.64539561   4.59552210   6.44914122
     ## 
     ## $c
-    ##  [1]  9.937638 10.161862 10.211082 10.078276 10.189441 10.042204  9.578111
-    ##  [8] 10.286862 10.008766 10.261320  9.882078 10.301097 10.162242  9.700962
-    ## [15] 10.066045  9.799748 10.097983 10.326935 10.006898  9.961918  9.847364
-    ## [22] 10.052845 10.191767 10.319745  9.891466  9.917973 10.271402 10.015647
-    ## [29]  9.933841  9.733160 10.144950  9.826421  9.967276  9.627734  9.716128
-    ## [36] 10.045833 10.042855 10.305929 10.046283  9.952487
+    ##  [1]  9.887694 10.183062  9.896914 10.119448 10.092843  9.926421 10.135873
+    ##  [8]  9.849162  9.937832 10.060546 10.023517 10.381282  9.914124 10.102493
+    ## [15] 10.313036 10.136719 10.076161 10.367776 10.607571 10.188480 10.001717
+    ## [22] 10.383992 10.114293 10.099386  9.662591 10.288961  9.964157 10.169412
+    ## [29]  9.652131  9.891241 10.009617  9.814743  9.870537  9.854799  9.521413
+    ## [36] 10.453187 10.043061 10.251273  9.973076 10.192471
     ## 
     ## $d
-    ##  [1] -3.315647 -4.572149 -4.284433 -1.976692 -3.321144 -4.907636 -3.484640
-    ##  [8] -5.582540 -2.907047 -4.874451 -2.171057 -3.721806 -3.554340 -3.448368
-    ## [15] -3.338464 -2.743361 -3.112357 -4.232850 -4.625808 -2.829103
+    ##  [1] -2.853223 -3.663219 -3.603808 -2.495812 -1.150922 -2.605125 -4.393071
+    ##  [8] -4.504243 -4.682666 -3.325358 -3.127976 -3.237272 -2.571349 -4.321820
+    ## [15] -4.588798 -3.448599 -2.639699 -3.544164 -2.509407 -3.761762
 
 ``` r
 listcol_df %>%
@@ -204,9 +205,9 @@ let’s try some operations.
 listcol_df$samp[[1]]
 ```
 
-    ##  [1] 4.0317811 3.6773079 2.3940488 4.9235070 2.2167676 2.7276463 3.5723113
-    ##  [8] 3.2474498 0.4013121 2.2287926 3.4166403 2.9344297 2.7993621 3.7920211
-    ## [15] 3.3375072 2.4734346 3.1411245 4.9489139 2.9235379 4.2735525
+    ##  [1] 3.186959 3.359489 2.792473 4.111898 2.911918 2.700403 2.768728 1.917639
+    ##  [9] 4.086807 2.664536 4.632890 4.347065 3.441696 4.647846 1.743040 2.836023
+    ## [17] 2.319005 4.298261 3.169483 3.316042
 
 ``` r
 mean_and_sd(listcol_df$samp[[1]])
@@ -215,16 +216,16 @@ mean_and_sd(listcol_df$samp[[1]])
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.17  1.03
+    ## 1  3.26 0.857
 
 ``` r
 mean_and_sd(listcol_df$samp[[2]])
 ```
 
     ## # A tibble: 1 x 2
-    ##     mean    sd
-    ##    <dbl> <dbl>
-    ## 1 0.0116  5.09
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1 0.681  6.02
 
 can i just …map?
 
@@ -236,25 +237,25 @@ map(listcol_df$samp, mean_and_sd)
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  3.17  1.03
+    ## 1  3.26 0.857
     ## 
     ## $b
     ## # A tibble: 1 x 2
-    ##     mean    sd
-    ##    <dbl> <dbl>
-    ## 1 0.0116  5.09
+    ##    mean    sd
+    ##   <dbl> <dbl>
+    ## 1 0.681  6.02
     ## 
     ## $c
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1  10.0 0.197
+    ## 1  10.1 0.224
     ## 
     ## $d
     ## # A tibble: 1 x 2
     ##    mean    sd
     ##   <dbl> <dbl>
-    ## 1 -3.65 0.948
+    ## 1 -3.35 0.897
 
 so can i add a list column? (in this case, to store the output)
 
@@ -270,7 +271,252 @@ listcol_df
     ## # A tibble: 4 x 4
     ##   name  samp         summary          medians
     ##   <chr> <named list> <named list>       <dbl>
-    ## 1 a     <dbl [20]>   <tibble [1 × 2]>   3.19 
-    ## 2 b     <dbl [30]>   <tibble [1 × 2]>   0.972
-    ## 3 c     <dbl [40]>   <tibble [1 × 2]>  10.0  
-    ## 4 d     <dbl [20]>   <tibble [1 × 2]>  -3.47
+    ## 1 a     <dbl [20]>   <tibble [1 × 2]>    3.18
+    ## 2 b     <dbl [30]>   <tibble [1 × 2]>    2.16
+    ## 3 c     <dbl [40]>   <tibble [1 × 2]>   10.1 
+    ## 4 d     <dbl [20]>   <tibble [1 × 2]>   -3.39
+
+## weather data
+
+``` r
+weather_df = 
+  rnoaa::meteo_pull_monitors(
+    c("USW00094728", "USC00519397", "USS0023B17S"),
+    var = c("PRCP", "TMIN", "TMAX"), 
+    date_min = "2017-01-01",
+    date_max = "2017-12-31") %>%
+  mutate(
+    name = recode(
+      id, 
+      USW00094728 = "CentralPark_NY", 
+      USC00519397 = "Waikiki_HA",
+      USS0023B17S = "Waterhole_WA"),
+    tmin = tmin / 10,
+    tmax = tmax / 10) %>%
+  select(name, id, everything())
+```
+
+    ## Registered S3 method overwritten by 'hoardr':
+    ##   method           from
+    ##   print.cache_info httr
+
+    ## using cached file: /Users/apple/Library/Caches/R/noaa_ghcnd/USW00094728.dly
+
+    ## date created (size, mb): 2020-10-08 01:50:33 (7.525)
+
+    ## file min/max dates: 1869-01-01 / 2020-10-31
+
+    ## using cached file: /Users/apple/Library/Caches/R/noaa_ghcnd/USC00519397.dly
+
+    ## date created (size, mb): 2020-10-08 01:50:52 (1.699)
+
+    ## file min/max dates: 1965-01-01 / 2020-03-31
+
+    ## using cached file: /Users/apple/Library/Caches/R/noaa_ghcnd/USS0023B17S.dly
+
+    ## date created (size, mb): 2020-10-08 01:51:14 (0.88)
+
+    ## file min/max dates: 1999-09-01 / 2020-10-31
+
+get our list columns..
+
+``` r
+weather_nest = 
+  nest(weather_df, data = date:tmin)
+
+weather_nest
+```
+
+    ## # A tibble: 3 x 3
+    ##   name           id          data              
+    ##   <chr>          <chr>       <list>            
+    ## 1 CentralPark_NY USW00094728 <tibble [365 × 4]>
+    ## 2 Waikiki_HA     USC00519397 <tibble [365 × 4]>
+    ## 3 Waterhole_WA   USS0023B17S <tibble [365 × 4]>
+
+``` r
+weather_nest %>% pull(name)
+```
+
+    ## [1] "CentralPark_NY" "Waikiki_HA"     "Waterhole_WA"
+
+``` r
+weather_nest %>% pull(data)
+```
+
+    ## [[1]]
+    ## # A tibble: 365 x 4
+    ##    date        prcp  tmax  tmin
+    ##    <date>     <dbl> <dbl> <dbl>
+    ##  1 2017-01-01     0   8.9   4.4
+    ##  2 2017-01-02    53   5     2.8
+    ##  3 2017-01-03   147   6.1   3.9
+    ##  4 2017-01-04     0  11.1   1.1
+    ##  5 2017-01-05     0   1.1  -2.7
+    ##  6 2017-01-06    13   0.6  -3.8
+    ##  7 2017-01-07    81  -3.2  -6.6
+    ##  8 2017-01-08     0  -3.8  -8.8
+    ##  9 2017-01-09     0  -4.9  -9.9
+    ## 10 2017-01-10     0   7.8  -6  
+    ## # … with 355 more rows
+    ## 
+    ## [[2]]
+    ## # A tibble: 365 x 4
+    ##    date        prcp  tmax  tmin
+    ##    <date>     <dbl> <dbl> <dbl>
+    ##  1 2017-01-01     0  26.7  16.7
+    ##  2 2017-01-02     0  27.2  16.7
+    ##  3 2017-01-03     0  27.8  17.2
+    ##  4 2017-01-04     0  27.2  16.7
+    ##  5 2017-01-05     0  27.8  16.7
+    ##  6 2017-01-06     0  27.2  16.7
+    ##  7 2017-01-07     0  27.2  16.7
+    ##  8 2017-01-08     0  25.6  15  
+    ##  9 2017-01-09     0  27.2  15.6
+    ## 10 2017-01-10     0  28.3  17.2
+    ## # … with 355 more rows
+    ## 
+    ## [[3]]
+    ## # A tibble: 365 x 4
+    ##    date        prcp  tmax  tmin
+    ##    <date>     <dbl> <dbl> <dbl>
+    ##  1 2017-01-01   432  -6.8 -10.7
+    ##  2 2017-01-02    25 -10.5 -12.4
+    ##  3 2017-01-03     0  -8.9 -15.9
+    ##  4 2017-01-04     0  -9.9 -15.5
+    ##  5 2017-01-05     0  -5.9 -14.2
+    ##  6 2017-01-06     0  -4.4 -11.3
+    ##  7 2017-01-07    51   0.6 -11.5
+    ##  8 2017-01-08    76   2.3  -1.2
+    ##  9 2017-01-09    51  -1.2  -7  
+    ## 10 2017-01-10     0  -5   -14.2
+    ## # … with 355 more rows
+
+``` r
+weather_nest$data[[1]]
+```
+
+    ## # A tibble: 365 x 4
+    ##    date        prcp  tmax  tmin
+    ##    <date>     <dbl> <dbl> <dbl>
+    ##  1 2017-01-01     0   8.9   4.4
+    ##  2 2017-01-02    53   5     2.8
+    ##  3 2017-01-03   147   6.1   3.9
+    ##  4 2017-01-04     0  11.1   1.1
+    ##  5 2017-01-05     0   1.1  -2.7
+    ##  6 2017-01-06    13   0.6  -3.8
+    ##  7 2017-01-07    81  -3.2  -6.6
+    ##  8 2017-01-08     0  -3.8  -8.8
+    ##  9 2017-01-09     0  -4.9  -9.9
+    ## 10 2017-01-10     0   7.8  -6  
+    ## # … with 355 more rows
+
+suppose i want to regress ‘tmax’ on ‘tmin’ for each station.
+
+this works..
+
+``` r
+lm(tmax ~ tmin, data = weather_nest$data[[1]])
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = weather_nest$data[[1]])
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##       7.209        1.039
+
+``` r
+lm(tmax ~ tmin, data = weather_nest$data[[2]])
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = weather_nest$data[[2]])
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##     20.0966       0.4509
+
+``` r
+lm(tmax ~ tmin, data = weather_nest$data[[3]])
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = weather_nest$data[[3]])
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##       7.499        1.221
+
+let’s write a function to do this regression.
+
+``` r
+weather_lm = function(df) {
+  
+  lm(tmax ~ tmin, data = df)
+  
+}
+
+output = vector("list", 3)
+
+for (i in 1:3) {
+  
+  output[[i]] = weather_lm(weather_nest$data[[i]])
+}
+```
+
+what about a map..?
+
+``` r
+map(weather_nest$data,weather_lm)
+```
+
+    ## [[1]]
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = df)
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##       7.209        1.039  
+    ## 
+    ## 
+    ## [[2]]
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = df)
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##     20.0966       0.4509  
+    ## 
+    ## 
+    ## [[3]]
+    ## 
+    ## Call:
+    ## lm(formula = tmax ~ tmin, data = df)
+    ## 
+    ## Coefficients:
+    ## (Intercept)         tmin  
+    ##       7.499        1.221
+
+what about a map in a list column? (here means adding a column with the
+output)
+
+``` r
+weather_nest = 
+  weather_nest %>% 
+  mutate(models = map(data, weather_lm))
+
+weather_nest
+```
+
+    ## # A tibble: 3 x 4
+    ##   name           id          data               models
+    ##   <chr>          <chr>       <list>             <list>
+    ## 1 CentralPark_NY USW00094728 <tibble [365 × 4]> <lm>  
+    ## 2 Waikiki_HA     USC00519397 <tibble [365 × 4]> <lm>  
+    ## 3 Waterhole_WA   USS0023B17S <tibble [365 × 4]> <lm>
