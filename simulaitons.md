@@ -29,7 +29,7 @@ sim_mean_sd(30)
     ## # A tibble: 1 x 2
     ##   mu_hat sigma_hat
     ##    <dbl>     <dbl>
-    ## 1   1.51      2.91
+    ## 1   1.96      2.46
 
 ## let’s simulate a lot.
 
@@ -75,7 +75,7 @@ sim_results %>%
     ## # A tibble: 1 x 2
     ##   avg_samp_mean sd_samp_mean
     ##           <dbl>        <dbl>
-    ## 1          1.99        0.591
+    ## 1          1.99        0.525
 
 ``` r
 sim_results %>% 
@@ -94,5 +94,65 @@ sim_results %>%
 
 | parameter  | emp\_mean | emp\_sd |
 | :--------- | --------: | ------: |
-| mu\_hat    |     1.992 |   0.591 |
-| sigma\_hat |     2.954 |   0.412 |
+| mu\_hat    |     1.989 |   0.525 |
+| sigma\_hat |     2.938 |   0.385 |
+
+## let’s try other sample sizes.
+
+``` r
+n_list = 
+  list(
+    "n_30"  = 30, 
+    "n_60"  = 60, 
+    "n_120" = 120, 
+    "n_240" = 240)
+
+output = vector("list", length = 4)
+
+for (i in 1:4) {
+  output[[i]] = 
+    rerun(100, sim_mean_sd(n_list[[i]])) %>% 
+    bind_rows
+}
+```
+
+``` r
+sim_results = 
+  tibble(sample_size = c(30, 60, 120, 240)) %>% 
+  mutate(
+    output_lists = map(.x = sample_size, ~rerun(1000, sim_mean_sd(n = .x))),
+    estimate_dfs = map(output_lists, bind_rows)) %>% 
+  select(-output_lists) %>% 
+  unnest(estimate_dfs)
+```
+
+do some data frame things
+
+``` r
+sim_results %>% 
+  mutate(
+    sample_size = str_c("n = ", sample_size),
+    sample_size = fct_inorder(sample_size)) %>% 
+  ggplot(aes(x = sample_size, y = mu_hat, fill = sample_size)) + 
+  geom_violin()
+```
+
+<img src="simulaitons_files/figure-gfm/unnamed-chunk-9-1.png" width="90%" />
+
+``` r
+sim_results %>%
+  group_by(sample_size) %>%
+  summarize(
+    avg_samp_mean = mean(mu_hat),
+    sd_samp_mean = sd(mu_hat))
+```
+
+    ## `summarise()` ungrouping output (override with `.groups` argument)
+
+    ## # A tibble: 4 x 3
+    ##   sample_size avg_samp_mean sd_samp_mean
+    ##         <dbl>         <dbl>        <dbl>
+    ## 1          30          1.97        0.547
+    ## 2          60          2.01        0.397
+    ## 3         120          1.99        0.269
+    ## 4         240          2.01        0.192
